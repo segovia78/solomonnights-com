@@ -145,8 +145,8 @@ HOME = """<!doctype html>
 
   <div class="wrap">
     <section class="about">
-      <p>Solomon Nights makes music for the in-between hours — the late nights and early mornings, when the noise finally drops and the honest questions rise. The songs are spare and unhurried: words that sit with grief and grace, doubt and surrender, and the stubborn hope of being held when you can barely hold on.</p>
-      <p>There are no easy answers here, and no easy hallelujahs — only the kind that cost something. If you’ve ever prayed in the dark, carried more than you let on, or kept walking when you couldn’t see the road, these songs were written for you.</p>
+      <p>Solomon Nights makes music for the in-between hours, the late nights and early mornings, when the noise finally drops and the honest questions rise. The songs are spare and unhurried, words that sit with grief and grace, doubt and surrender, and the stubborn hope of being held when you can barely hold on.</p>
+      <p>There are no easy answers here, and no easy hallelujahs, only the kind that cost something. If you’ve ever prayed in the dark, carried more than you let on, or kept walking when you couldn’t see the road, these songs were written for you.</p>
     </section>
 
     <blockquote class="quote serif">“Lead me when I cannot see, hold me when I cannot stand.”<span class="by">— When I Cannot See</span></blockquote>
