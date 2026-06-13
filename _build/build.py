@@ -129,12 +129,15 @@ HOME = """<!doctype html>
   .listen a { color: #c4b5a6; text-decoration: none; font-size: 14px; margin: 0 12px; border-bottom: 0.5px solid #4a4038; padding-bottom: 2px; }
   .foot { text-align: center; color: #6f6157; font-size: 12px; margin: 48px 0 40px; padding-top: 22px; border-top: 0.5px solid #2c251f; }
   .foot a { color: #9c8a7b; text-decoration: none; margin: 0 9px; }
+  .social { margin-bottom: 14px; }
+  .social a { color: #c4b5a6; display: inline-block; margin: 0 11px; }
+  .social svg { width: 23px; height: 23px; vertical-align: middle; }
   @media (max-width: 560px) { .name { font-size: 44px; } .sub { font-size: 19px; } .quote { font-size: 25px; } }
 </style>
 </head>
 <body>
   <header class="hero">
-    <div class="eyebrow">Solomon Nights</div>
+    <div class="eyebrow">Singer · songwriter</div>
     <div class="name serif">Solomon Nights</div>
     <p class="sub serif">Stripped-back songs for faith, doubt, and the quiet hours.</p>
     <a class="cta" href="https://open.spotify.com/playlist/@@PLAYLIST@@">Save the playlist on Spotify</a>
@@ -161,8 +164,12 @@ HOME = """<!doctype html>
     </div>
 
     <footer class="foot">
-      <div><a href="https://www.instagram.com/solomonnightsartist/">Instagram</a><a href="https://www.tiktok.com/@solomon.nights">TikTok</a><a href="https://www.facebook.com/SolomonNights/">Facebook</a></div>
-      <div style="margin-top:12px;">© Solomon Nights</div>
+      <div class="social">
+        <a href="https://www.instagram.com/solomonnightsartist/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com/SolomonNights/" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.45-3H13.5V9.1c0-.86.27-1.45 1.5-1.45h1.5V5.03A20 20 0 0 0 14.36 4.9C12.13 4.9 10.5 6.26 10.5 8.77V11H8.1v3h2.4v7h3z"/></svg></a>
+        <a href="https://www.tiktok.com/@solomon.nights" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.32 2.06 1.5 3.43 3.5 3.6v2.66c-1.16.1-2.18-.26-3.36-.97v6.05c0 4.06-3.34 6.4-6.65 5.46-3.9-1.1-4.62-6.06-1.08-7.86.95-.48 1.86-.55 2.99-.4v2.79c-.43-.13-.86-.2-1.27-.13-1.07.18-1.74 1.05-1.55 2.13.18 1.02 1.2 1.66 2.26 1.46 1-.18 1.66-1.04 1.66-2.18V3h3.5z"/></svg></a>
+      </div>
+      <div>© Solomon Nights</div>
     </footer>
   </div>
 <script>
