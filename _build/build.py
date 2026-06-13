@@ -49,7 +49,8 @@ PAGE = """<!doctype html>
   .artist a { color: inherit; text-decoration: none; }
   .cover { width: 100%; aspect-ratio: 1/1; border-radius: 10px; border: 0.5px solid #3a322c; display: block; object-fit: cover; background: #221b16; }
   .title { font-size: 22px; font-weight: 600; margin: 20px 0 4px; }
-  .tag { color: #9c8a7b; font-size: 13px; margin: 0 0 24px; }
+  .tag { color: #9c8a7b; font-size: 13px; margin: 0 0 16px; }
+  .blurb { color: #b9a895; font-size: 14px; line-height: 1.65; margin: 0 0 22px; text-align: left; }
   .save { display: flex; align-items: center; justify-content: center; gap: 9px; background: #1db954; color: #0b3d20; font-size: 16px; font-weight: 600; text-decoration: none; padding: 15px; border-radius: 26px; width: 100%; }
   .save:active { transform: scale(0.985); }
   .hint { color: #8a7b6d; font-size: 12px; margin-top: 12px; line-height: 1.5; }
@@ -63,6 +64,7 @@ PAGE = """<!doctype html>
     <img class="cover" alt="@@TITLE@@ — Solomon Nights cover art" src="@@COVER@@" />
     <h1 class="title">@@TITLE@@</h1>
     <p class="tag">@@TAGLINE@@</p>
+    <p class="blurb">@@BLURB@@</p>
     <a id="save" class="save" href="https://open.spotify.com/track/@@TRACK@@?context=spotify:playlist:@@PLAYLIST@@">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="#0b3d20" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.44a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.82-.88 7.09-.5 9.72 1.1.3.18.39.57.21.86Zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.69-1.66-6.79-2.14-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.57 11.24 1.33.36.22.48.7.25 1.07Zm.11-2.84C14.8 8.92 9.5 8.74 6.45 9.67a.93.93 0 1 1-.54-1.78c3.5-1.06 9.35-.86 12.99 1.3a.93.93 0 1 1-.95 1.6Z"/></svg>
       Save on Spotify
@@ -193,7 +195,8 @@ def main():
         slug = slugify(s["title"]); cov = cover(s["trackId"])
         if not first_cover: first_cover = cov
         page = render(PAGE, TITLE=s["title"], SLUG=slug, COVER=cov, TRACK=s["trackId"],
-                      PLAYLIST=PLAYLIST, PIXEL=PIXEL, DOMAIN=DOMAIN, TAGLINE=TAGLINE)
+                      PLAYLIST=PLAYLIST, PIXEL=PIXEL, DOMAIN=DOMAIN, TAGLINE=TAGLINE,
+                      BLURB=s.get("blurb", ""))
         os.makedirs(os.path.join(ROOT, slug), exist_ok=True)
         open(os.path.join(ROOT, slug, "index.html"), "w", encoding="utf-8").write(page)
         cards.append(render(CARD, SLUG=slug, COVER=cov, TITLE=s["title"]))
