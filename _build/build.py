@@ -65,12 +65,12 @@ PAGE = """<!doctype html>
     <h1 class="title">@@TITLE@@</h1>
     <p class="tag">@@TAGLINE@@</p>
     <p class="blurb">@@BLURB@@</p>
-    <a id="save" class="save" href="https://open.spotify.com/track/@@TRACK@@?context=spotify:playlist:@@PLAYLIST@@">
+    <a target="_blank" rel="noopener" id="save" class="save" href="https://open.spotify.com/track/@@TRACK@@?context=spotify:playlist:@@PLAYLIST@@">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="#0b3d20" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.44a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.82-.88 7.09-.5 9.72 1.1.3.18.39.57.21.86Zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.69-1.66-6.79-2.14-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.57 11.24 1.33.36.22.48.7.25 1.07Zm.11-2.84C14.8 8.92 9.5 8.74 6.45 9.67a.93.93 0 1 1-.54-1.78c3.5-1.06 9.35-.86 12.99 1.3a.93.93 0 1 1-.95 1.6Z"/></svg>
       Save on Spotify
     </a>
     <p class="hint">Opens in the Spotify app on this song —<br>tap the heart to save the playlist</p>
-    <div class="foot">Part of the <a href="https://open.spotify.com/playlist/@@PLAYLIST@@">“This is Solomon Nights”</a> playlist</div>
+    <div class="foot">Part of the <a target="_blank" rel="noopener" href="https://open.spotify.com/playlist/@@PLAYLIST@@">“This is Solomon Nights”</a> playlist</div>
   </main>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -142,7 +142,7 @@ HOME = """<!doctype html>
     <div class="eyebrow">Singer · songwriter</div>
     <div class="name serif">Solomon Nights</div>
     <p class="sub serif">Stripped-back songs for faith, doubt, and the quiet hours.</p>
-    <a class="cta" href="https://open.spotify.com/playlist/@@PLAYLIST@@">Save the playlist on Spotify</a>
+    <a target="_blank" rel="noopener" class="cta" href="https://open.spotify.com/playlist/@@PLAYLIST@@">Save the playlist on Spotify</a>
   </header>
 
   <div class="wrap">
@@ -159,17 +159,17 @@ HOME = """<!doctype html>
     </div>
 
     <div class="listen">
-      <a href="https://open.spotify.com/artist/7okTzi9u2gLE1dvRC6hnAm">Spotify</a>
-      <a href="https://music.apple.com/gb/artist/solomon-nights/1896549972">Apple Music</a>
-      <a href="https://www.youtube.com/@SolomonNights">YouTube</a>
-      <a href="https://www.deezer.com/en/artist/390290591">Deezer</a>
+      <a target="_blank" rel="noopener" href="https://open.spotify.com/artist/7okTzi9u2gLE1dvRC6hnAm">Spotify</a>
+      <a target="_blank" rel="noopener" href="https://music.apple.com/gb/artist/solomon-nights/1896549972">Apple Music</a>
+      <a target="_blank" rel="noopener" href="https://www.youtube.com/@SolomonNights">YouTube</a>
+      <a target="_blank" rel="noopener" href="https://www.deezer.com/en/artist/390290591">Deezer</a>
     </div>
 
     <footer class="foot">
       <div class="social">
-        <a href="https://www.instagram.com/solomonnightsartist/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://www.facebook.com/SolomonNights/" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.45-3H13.5V9.1c0-.86.27-1.45 1.5-1.45h1.5V5.03A20 20 0 0 0 14.36 4.9C12.13 4.9 10.5 6.26 10.5 8.77V11H8.1v3h2.4v7h3z"/></svg></a>
-        <a href="https://www.tiktok.com/@solomon.nights" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.32 2.06 1.5 3.43 3.5 3.6v2.66c-1.16.1-2.18-.26-3.36-.97v6.05c0 4.06-3.34 6.4-6.65 5.46-3.9-1.1-4.62-6.06-1.08-7.86.95-.48 1.86-.55 2.99-.4v2.79c-.43-.13-.86-.2-1.27-.13-1.07.18-1.74 1.05-1.55 2.13.18 1.02 1.2 1.66 2.26 1.46 1-.18 1.66-1.04 1.66-2.18V3h3.5z"/></svg></a>
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/solomonnightsartist/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a target="_blank" rel="noopener" href="https://www.facebook.com/SolomonNights/" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.45-3H13.5V9.1c0-.86.27-1.45 1.5-1.45h1.5V5.03A20 20 0 0 0 14.36 4.9C12.13 4.9 10.5 6.26 10.5 8.77V11H8.1v3h2.4v7h3z"/></svg></a>
+        <a target="_blank" rel="noopener" href="https://www.tiktok.com/@solomon.nights" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.32 2.06 1.5 3.43 3.5 3.6v2.66c-1.16.1-2.18-.26-3.36-.97v6.05c0 4.06-3.34 6.4-6.65 5.46-3.9-1.1-4.62-6.06-1.08-7.86.95-.48 1.86-.55 2.99-.4v2.79c-.43-.13-.86-.2-1.27-.13-1.07.18-1.74 1.05-1.55 2.13.18 1.02 1.2 1.66 2.26 1.46 1-.18 1.66-1.04 1.66-2.18V3h3.5z"/></svg></a>
       </div>
       <div>© Solomon Nights</div>
     </footer>
