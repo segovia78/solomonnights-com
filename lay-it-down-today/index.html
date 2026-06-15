@@ -56,7 +56,7 @@ var utm={};location.search.replace(/^\?/,'').split('&').forEach(function(p){
 var meta=Object.assign({artist:'solomon_nights',song:'Lay It Down Today',content_name:'Lay It Down Today',content_category:'solomon_nights'},utm);
 fbq('track','PageView',meta);
 fbq('track','ViewContent',meta);
-document.getElementById('save').addEventListener('click',function(){fbq('trackCustom','SpotifySaveClick',meta);});
+document.getElementById('save').addEventListener('click',function(){fbq('trackCustom','SpotifySaveClick',meta);fbq('track','Lead',meta);});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1022464693584913&ev=PageView&noscript=1"/></noscript>
 </body>

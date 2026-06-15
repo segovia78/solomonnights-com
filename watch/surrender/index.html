@@ -40,8 +40,23 @@
     <video controls playsinline preload="metadata" poster="poster.jpg">
       <source src="https://music.solomonnights.com/watch/surrender/video.mp4" type="video/mp4" />
     </video>
-    <a class="save" href="/surrender">Save on Spotify</a>
+    <a class="save" id="save" href="https://open.spotify.com/track/2MEdx0Rrc3QgRvv4Wy2w5m?context=spotify:playlist:053laY69PHb8Sy27Xnb7Yh">Save on Spotify</a>
   </main>
   <footer class="foot"><a href="/#videos">More visualisers</a> &middot; <a href="/">Home</a></footer>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1022464693584913');
+var utm={};location.search.replace(/^\?/,'').split('&').forEach(function(p){
+  if(!p)return;var kv=p.split('=');if(/^utm_/.test(kv[0]))utm[kv[0]]=decodeURIComponent(kv[1]||'');});
+var meta=Object.assign({artist:'solomon_nights',song:'Surrender',content_name:'Surrender',content_category:'solomon_nights',page:'visualiser'},utm);
+fbq('track','PageView',meta);
+fbq('track','ViewContent',meta);
+var sv=document.getElementById('save');
+if(sv)sv.addEventListener('click',function(){fbq('trackCustom','SpotifySaveClick',meta);fbq('track','Lead',meta);});
+</script>
 </body>
 </html>
