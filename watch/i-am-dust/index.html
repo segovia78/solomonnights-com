@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Solomon Nights · I Am Dust (visualiser)</title>
+<meta name="description" content="I Am Dust by Solomon Nights, a short cinematic visualiser. Save the playlist on Spotify." />
+<meta property="og:title" content="Solomon Nights · I Am Dust" />
+<meta property="og:description" content="A short cinematic visualiser. Save the playlist on Spotify." />
+<meta name="theme-color" content="#15110f" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
+  body { background: #15110f; color: #f3ece4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; min-height: 100svh; display: flex; flex-direction: column; }
+  .nav { display: flex; align-items: center; justify-content: space-between; max-width: 760px; width: 100%; margin: 0 auto; padding: 16px 18px; }
+  .brand { color: #f3ece4; font-family: "Cormorant Garamond", Georgia, serif; font-size: 21px; font-weight: 500; text-decoration: none; letter-spacing: 0.3px; }
+  .navlink { color: #c9a27a; font-size: 12px; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; }
+  .navlink:hover { color: #e2c79e; }
+  main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 10px 18px 30px; }
+  h1 { font-size: 22px; font-weight: 500; margin: 6px 0 16px; text-align: center; }
+  video { width: auto; max-width: 100%; max-height: 74svh; aspect-ratio: 9/16; border-radius: 12px; border: 0.5px solid #3a322c; background: #000; display: block; }
+  .save { display: inline-flex; align-items: center; gap: 9px; background: #1db954; color: #0b3d20; font-size: 15px; font-weight: 600; text-decoration: none; padding: 13px 24px; border-radius: 24px; margin-top: 22px; }
+  .save:active { transform: scale(0.985); }
+  .foot { text-align: center; color: #6f6157; font-size: 12px; padding: 22px 18px 34px; }
+  .foot a { color: #9c8a7b; text-decoration: none; margin: 0 9px; }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/">Solomon Nights</a>
+    <a class="navlink" href="/#videos">All visualisers</a>
+  </header>
+  <main>
+    <h1>I Am Dust</h1>
+    <video controls playsinline preload="metadata" poster="poster.jpg">
+      <source src="https://music.solomonnights.com/watch/i-am-dust/video.mp4" type="video/mp4" />
+    </video>
+    <a class="save" href="/i-am-dust">Save on Spotify</a>
+  </main>
+  <footer class="foot"><a href="/#videos">More visualisers</a> &middot; <a href="/">Home</a></footer>
+</body>
+</html>
