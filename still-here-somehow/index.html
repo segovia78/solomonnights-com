@@ -26,8 +26,8 @@
   .save { display: flex; align-items: center; justify-content: center; gap: 9px; background: #1db954; color: #0b3d20; font-size: 16px; font-weight: 600; text-decoration: none; padding: 15px; border-radius: 26px; width: 100%; }
   .save:active { transform: scale(0.985); }
   .hint { color: #8a7b6d; font-size: 12px; margin-top: 12px; line-height: 1.5; }
-  .foot { color: #6f6157; font-size: 11px; margin-top: 22px; padding-top: 16px; border-top: 0.5px solid #2c251f; }
-  .foot a { color: #8a7b6d; text-decoration: none; }
+  .foot { color: #8a7b6d; font-size: 13px; margin-top: 24px; padding-top: 18px; border-top: 0.5px solid #2c251f; }
+  .foot a { color: #c9a27a; text-decoration: none; }
 
   .share{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:13px}
   .sbtn{background:rgba(255,255,255,0.05);border:0.5px solid #3a322c;color:#c4b5a6;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
@@ -70,7 +70,7 @@ document.getElementById('save').addEventListener('click',function(){fbq('trackCu
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1022464693584913&ev=PageView&noscript=1"/></noscript>
 <script>
-function snShare(p){var url=location.href;var h1=document.querySelector('h1.title');var song=h1?h1.textContent:'this song';var txt='Listen to '+song+' by Solomon Nights';try{if(window.fbq)fbq('trackCustom','ShareClick',{platform:p,song:song});}catch(e){}if(p==='facebook'){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'_blank','noopener');return;}if(navigator.share){navigator.share({title:song+' \u00b7 Solomon Nights',text:txt,url:url}).catch(function(){});return;}var msg=document.getElementById('sharemsg');var show=function(){if(msg){msg.textContent='Link copied. Paste it into '+(p==='instagram'?'Instagram':'TikTok')+'.';msg.style.opacity=1;setTimeout(function(){msg.style.opacity=0;},3500);}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(show,show);}else{show();}}
+function snShare(p){var url=location.href;var h1=document.querySelector('h1.title')||document.querySelector('h1');var song=h1?h1.textContent:'this song';var txt='Listen to '+song+' by Solomon Nights';try{if(window.fbq)fbq('trackCustom','ShareClick',{platform:p,song:song});}catch(e){}if(p==='facebook'){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'_blank','noopener');return;}if(navigator.share){navigator.share({title:song+' \u00b7 Solomon Nights',text:txt,url:url}).catch(function(){});return;}var msg=document.getElementById('sharemsg');var show=function(){if(msg){msg.textContent='Link copied. Paste it into '+(p==='instagram'?'Instagram':'TikTok')+'.';msg.style.opacity=1;setTimeout(function(){msg.style.opacity=0;},3500);}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(show,show);}else{show();}}
 </script>
 </body>
 </html>
