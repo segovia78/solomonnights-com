@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Solomon Nights — stripped-back songs for the quiet hours</title>
-<meta name="description" content="Solomon Nights: spare, acoustic songs about faith, doubt, grief and quiet hope. Listen and save the playlist on Spotify." />
+<title>Solomon Nights · spare songs for the quiet hours</title>
+<meta name="description" content="Solomon Nights: spare, acoustic songs about faith, doubt, grief and quiet hope. Watch the lyric videos and save the playlist on Spotify." />
 <meta property="og:title" content="Solomon Nights" />
-<meta property="og:description" content="Stripped-back songs about faith, doubt, grief and quiet hope. Listen on Spotify." />
+<meta property="og:description" content="Spare, acoustic songs about faith, doubt, grief and quiet hope. Watch the lyric videos and listen on Spotify." />
 <meta property="og:image" content="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27335f56d6346c8ecbc975a4c74" />
 <meta property="og:url" content="https://solomonnights.com/" />
 <meta name="theme-color" content="#15110f" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -17,69 +20,79 @@
   html, body { margin: 0; }
   body { background: #15110f; color: #f3ece4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.65; }
   .serif { font-family: "Cormorant Garamond", Georgia, serif; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
-  .hero { text-align: center; padding: 64px 22px 40px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+  .hero { text-align: center; padding: 60px 22px 30px; }
   .eyebrow { color: #c9a27a; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; }
   .name { font-size: 56px; font-weight: 500; line-height: 1.05; margin: 14px 0 8px; letter-spacing: 0.5px; }
-  .sub { color: #b9a895; font-size: 21px; font-style: italic; margin: 0 auto 26px; max-width: 30ch; }
+  .sub { color: #b9a895; font-size: 21px; font-style: italic; margin: 0 auto 24px; max-width: 30ch; }
   .cta { display: inline-flex; align-items: center; gap: 9px; background: #1db954; color: #0b3d20; font-size: 16px; font-weight: 600; text-decoration: none; padding: 14px 26px; border-radius: 26px; }
   .cta:active { transform: scale(0.985); }
+  .watchlink { display: block; margin-top: 16px; color: #c9a27a; font-size: 14px; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; }
+  .watchlink:hover { color: #e2c79e; }
   .about { padding: 14px 0 8px; }
   .about p { color: #d8ccc0; font-size: 17px; margin: 0 0 18px; }
-  .quote { font-size: 30px; color: #f3ece4; text-align: center; margin: 40px auto; max-width: 22ch; line-height: 1.25; }
+  .quote { font-size: 30px; color: #f3ece4; text-align: center; margin: 36px auto; max-width: 22ch; line-height: 1.25; }
   .quote .by { display: block; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-style: normal; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #c9a27a; margin-top: 14px; }
-  h2 { font-size: 15px; letter-spacing: 2px; text-transform: uppercase; color: #c9a27a; font-weight: 500; margin: 48px 0 18px; text-align: center; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
-  .song { text-decoration: none; color: #e9ddd1; }
-  .song img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 9px; border: 0.5px solid #3a322c; display: block; }
-  .song span { display: block; font-size: 13px; margin-top: 8px; }
-  .song:active img { transform: scale(0.99); }
-  .listen { text-align: center; margin: 40px 0 8px; }
+  h2 { font-size: 15px; letter-spacing: 2px; text-transform: uppercase; color: #c9a27a; font-weight: 500; margin: 46px 0 6px; text-align: center; }
+  .h2sub { text-align: center; color: #8d8070; font-size: 13px; margin: 0 0 22px; }
+  .vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+  .vid { text-decoration: none; color: #e9ddd1; }
+  .vid .thumb { position: relative; display: block; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; border: 0.5px solid #3a322c; background: #0d0a08; }
+  .vid .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vid .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(13,10,8,0.5); display: flex; align-items: center; justify-content: center; transition: background .15s; }
+  .vid .play svg { width: 17px; height: 17px; fill: #f3ece4; margin-left: 2px; }
+  .vid:hover .play { background: rgba(29,185,84,0.85); }
+  .vid:hover .play svg { fill: #0b3d20; }
+  .vid .vt { display: block; font-size: 13px; margin-top: 8px; color: #cabbac; }
+  .vid:active .thumb { transform: scale(0.99); }
+  .listen { text-align: center; margin: 44px 0 8px; }
   .listen a { color: #c4b5a6; text-decoration: none; font-size: 14px; margin: 0 12px; border-bottom: 0.5px solid #4a4038; padding-bottom: 2px; }
   .foot { text-align: center; color: #6f6157; font-size: 12px; margin: 48px 0 40px; padding-top: 22px; border-top: 0.5px solid #2c251f; }
   .foot a { color: #9c8a7b; text-decoration: none; margin: 0 9px; }
   .social { margin-bottom: 14px; }
   .social a { color: #c4b5a6; display: inline-block; margin: 0 11px; }
   .social svg { width: 23px; height: 23px; vertical-align: middle; }
-  @media (max-width: 560px) { .name { font-size: 44px; } .sub { font-size: 19px; } .quote { font-size: 25px; } }
+  @media (max-width: 560px) { .name { font-size: 44px; } .sub { font-size: 19px; } .quote { font-size: 25px; } .vgrid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 </style>
 </head>
 <body>
   <header class="hero">
     <div class="eyebrow">Singer · songwriter</div>
     <div class="name serif">Solomon Nights</div>
-    <p class="sub serif">Stripped-back songs for faith, doubt, and the quiet hours.</p>
+    <p class="sub serif">Stripped back songs for faith, doubt, and the quiet hours.</p>
     <a class="cta" href="https://open.spotify.com/playlist/053laY69PHb8Sy27Xnb7Yh">Save the playlist on Spotify</a>
+    <a class="watchlink" href="#videos">Watch the lyric videos</a>
   </header>
 
   <div class="wrap">
     <section class="about">
-      <p>Solomon Nights makes music for the in-between hours, the late nights and early mornings, when the noise finally drops and the honest questions rise. The songs are spare and unhurried, words that sit with grief and grace, doubt and surrender, and the stubborn hope of being held when you can barely hold on.</p>
-      <p>There are no easy answers here, and no easy hallelujahs, only the kind that cost something. If you’ve ever prayed in the dark, carried more than you let on, or kept walking when you couldn’t see the road, these songs were written for you.</p>
+      <p>Solomon Nights makes music for the in between hours, the late nights and early mornings, when the noise finally drops and the honest questions rise. The songs are spare and unhurried, words that sit with grief and grace, doubt and surrender, and the stubborn hope of being held when you can barely hold on.</p>
+      <p>There are no easy answers here, and no easy hallelujahs, only the kind that cost something. If you have ever prayed in the dark, carried more than you let on, or kept walking when you could not see the road, these songs were written for you.</p>
     </section>
 
-    <blockquote class="quote serif">“Lead me when I cannot see, hold me when I cannot stand.”<span class="by">— When I Cannot See</span></blockquote>
+    <blockquote class="quote serif">&ldquo;Lead me when I cannot see, hold me when I cannot stand.&rdquo;<span class="by">When I Cannot See</span></blockquote>
 
-    <h2>The songs</h2>
-    <div class="grid">
-      <a class="song" href="/when-i-cannot-see"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27335f56d6346c8ecbc975a4c74" alt="When I Cannot See cover art" /><span>When I Cannot See</span></a>
-      <a class="song" href="/mercy-has-a-way"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27325488fc1e6d6e7e2c0f94281" alt="Mercy Has A Way cover art" /><span>Mercy Has A Way</span></a>
-      <a class="song" href="/easy-hallelujahs"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b2736f2438eff76134c5e25c3f0a" alt="Easy Hallelujahs cover art" /><span>Easy Hallelujahs</span></a>
-      <a class="song" href="/signals"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273f3d87231ba8eca69f4b112e9" alt="Signals cover art" /><span>Signals</span></a>
-      <a class="song" href="/what-love-becomes"><img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d0000b273d17d0f54ebb68a93ec76bb3e" alt="What Love Becomes cover art" /><span>What Love Becomes</span></a>
-      <a class="song" href="/i-asked-you-to-change-me"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b2734ae30d43784e4bd58b29fc24" alt="I Asked You To Change Me cover art" /><span>I Asked You To Change Me</span></a>
-      <a class="song" href="/before-i-find-words"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27366820a8ccb746f72ac799647" alt="Before I Find Words cover art" /><span>Before I Find Words</span></a>
-      <a class="song" href="/make-room-in-me"><img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d0000b2730ef9d47b2a597113ea0cffc0" alt="Make Room In Me cover art" /><span>Make Room In Me</span></a>
-      <a class="song" href="/let-the-morning-come"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273e7576abf0130880e07e152f0" alt="Let The Morning Come cover art" /><span>Let The Morning Come</span></a>
-      <a class="song" href="/i-still-look-for-you"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273938bb03cdb80e3c3d390d3a0" alt="I Still Look For You cover art" /><span>I Still Look For You</span></a>
-      <a class="song" href="/i-am-not-forsaken"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b2734a2baf489ca3158e308de48e" alt="I Am Not Forsaken cover art" /><span>I Am Not Forsaken</span></a>
-      <a class="song" href="/still-here-somehow"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27339f9fc1bfc991ab80558522b" alt="Still Here Somehow cover art" /><span>Still Here Somehow</span></a>
-      <a class="song" href="/good-to-me-again"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b2730af88cd6eae6b8957a8003f4" alt="Good To Me Again cover art" /><span>Good To Me Again</span></a>
-      <a class="song" href="/lay-it-down-today"><img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d0000b273b46d44ab73b3b3ced5afbf19" alt="Lay It Down Today cover art" /><span>Lay It Down Today</span></a>
-      <a class="song" href="/surrender"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b27352e229f39c8f08bf06840212" alt="Surrender cover art" /><span>Surrender</span></a>
-      <a class="song" href="/you-stay-close"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b273489b7ff3db7ede5558fdef00" alt="You Stay Close cover art" /><span>You Stay Close</span></a>
-      <a class="song" href="/i-am-dust"><img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d0000b2738ec015bb9a7357d29f655f57" alt="I Am Dust cover art" /><span>I Am Dust</span></a>
-      <a class="song" href="/road-beneath-my-feet"><img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d0000b273f8eed82d29b30d1a66b28553" alt="Road Beneath My Feet cover art" /><span>Road Beneath My Feet</span></a>
+    <h2 id="videos">Watch the lyric videos</h2>
+    <p class="h2sub">Eighteen songs, each with its own film. Tap to watch.</p>
+    <div class="vgrid">
+      <a class="vid" href="https://music.solomonnights.com/watch/when-i-cannot-see/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/when-i-cannot-see/poster.jpg" alt="When I Cannot See lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">When I Cannot See</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/i-am-not-forsaken/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/i-am-not-forsaken/poster.jpg" alt="I Am Not Forsaken lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">I Am Not Forsaken</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/mercy-has-a-way/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/mercy-has-a-way/poster.jpg" alt="Mercy Has A Way lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Mercy Has A Way</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/still-here-somehow/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/still-here-somehow/poster.jpg" alt="Still Here Somehow lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Still Here Somehow</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/surrender/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/surrender/poster.jpg" alt="Surrender lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Surrender</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/i-asked-you-to-change-me/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/i-asked-you-to-change-me/poster.jpg" alt="I Asked You To Change Me lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">I Asked You To Change Me</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/good-to-me-again/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/good-to-me-again/poster.jpg" alt="Good To Me Again lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Good To Me Again</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/what-love-becomes/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/what-love-becomes/poster.jpg" alt="What Love Becomes lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">What Love Becomes</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/i-still-look-for-you/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/i-still-look-for-you/poster.jpg" alt="I Still Look For You lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">I Still Look For You</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/signals/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/signals/poster.jpg" alt="Signals lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Signals</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/i-am-dust/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/i-am-dust/poster.jpg" alt="I Am Dust lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">I Am Dust</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/easy-hallelujahs/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/easy-hallelujahs/poster.jpg" alt="Easy Hallelujahs lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Easy Hallelujahs</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/road-beneath-my-feet/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/road-beneath-my-feet/poster.jpg" alt="Road Beneath My Feet lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Road Beneath My Feet</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/you-stay-close/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/you-stay-close/poster.jpg" alt="You Stay Close lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">You Stay Close</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/make-room-in-me/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/make-room-in-me/poster.jpg" alt="Make Room In Me lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Make Room In Me</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/let-the-morning-come/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/let-the-morning-come/poster.jpg" alt="Let The Morning Come lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Let The Morning Come</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/before-i-find-words/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/before-i-find-words/poster.jpg" alt="Before I Find Words lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Before I Find Words</span></a>
+      <a class="vid" href="https://music.solomonnights.com/watch/lay-it-down-today/"><span class="thumb"><img loading="lazy" src="https://music.solomonnights.com/watch/lay-it-down-today/poster.jpg" alt="Lay It Down Today lyric video" /><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span><span class="vt">Lay It Down Today</span></a>
     </div>
 
     <div class="listen">
@@ -95,7 +108,7 @@
         <a href="https://www.facebook.com/SolomonNights/" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.45-3H13.5V9.1c0-.86.27-1.45 1.5-1.45h1.5V5.03A20 20 0 0 0 14.36 4.9C12.13 4.9 10.5 6.26 10.5 8.77V11H8.1v3h2.4v7h3z"/></svg></a>
         <a href="https://www.tiktok.com/@solomon.nights" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.32 2.06 1.5 3.43 3.5 3.6v2.66c-1.16.1-2.18-.26-3.36-.97v6.05c0 4.06-3.34 6.4-6.65 5.46-3.9-1.1-4.62-6.06-1.08-7.86.95-.48 1.86-.55 2.99-.4v2.79c-.43-.13-.86-.2-1.27-.13-1.07.18-1.74 1.05-1.55 2.13.18 1.02 1.2 1.66 2.26 1.46 1-.18 1.66-1.04 1.66-2.18V3h3.5z"/></svg></a>
       </div>
-      <div>© Solomon Nights</div>
+      <div>&copy; Solomon Nights</div>
     </footer>
   </div>
 <script>
