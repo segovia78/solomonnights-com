@@ -53,7 +53,15 @@ PAGE = """<!doctype html>
   .blurb { color: #b9a895; font-size: 14px; line-height: 1.65; margin: 0 0 22px; text-align: left; }
   .save { display: flex; align-items: center; justify-content: center; gap: 9px; background: #1db954; color: #0b3d20; font-size: 16px; font-weight: 600; text-decoration: none; padding: 15px; border-radius: 26px; width: 100%; }
   .save:active { transform: scale(0.985); }
+  .save + .save { margin-top: 11px; }
+  .save.secondary { background: transparent; color: #1db954; border: 1.5px solid #2f7d4f; }
+  .save.secondary:hover { border-color: #1db954; }
   .hint { color: #8a7b6d; font-size: 12px; margin-top: 12px; line-height: 1.5; }
+  .share{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:13px}
+  .sbtn{background:rgba(255,255,255,0.05);border:0.5px solid #3a322c;color:#c4b5a6;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+  .sbtn:hover{background:rgba(201,162,122,0.16);color:#e2c79e}
+  .sbtn svg{width:19px;height:19px}
+  .sharemsg{min-height:16px;margin:10px 0 0;color:#9a8d7e;font-size:12px;opacity:0;transition:opacity .3s}
   .foot { color: #6f6157; font-size: 11px; margin-top: 22px; padding-top: 16px; border-top: 0.5px solid #2c251f; }
   .foot a { color: #8a7b6d; text-decoration: none; }
 </style>
@@ -65,11 +73,18 @@ PAGE = """<!doctype html>
     <h1 class="title">@@TITLE@@</h1>
     <p class="tag">@@TAGLINE@@</p>
     <p class="blurb">@@BLURB@@</p>
-    <a target="_blank" rel="noopener" id="save" class="save" href="https://open.spotify.com/track/@@TRACK@@?context=spotify:playlist:@@PLAYLIST@@">
+    <a target="_blank" rel="noopener" id="follow" class="save" href="https://open.spotify.com/artist/7okTzi9u2gLE1dvRC6hnAm">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="#0b3d20" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.44a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.82-.88 7.09-.5 9.72 1.1.3.18.39.57.21.86Zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.69-1.66-6.79-2.14-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.57 11.24 1.33.36.22.48.7.25 1.07Zm.11-2.84C14.8 8.92 9.5 8.74 6.45 9.67a.93.93 0 1 1-.54-1.78c3.5-1.06 9.35-.86 12.99 1.3a.93.93 0 1 1-.95 1.6Z"/></svg>
-      Save on Spotify
+      Follow Solomon Nights
     </a>
-    <p class="hint">Opens in the Spotify app on this song —<br>tap the heart to save the playlist</p>
+    <a target="_blank" rel="noopener" id="save" class="save secondary" href="https://open.spotify.com/track/@@TRACK@@?context=spotify:playlist:@@PLAYLIST@@">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="#1db954" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.59 14.44a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.82-.88 7.09-.5 9.72 1.1.3.18.39.57.21.86Zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.69-1.66-6.79-2.14-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.57 11.24 1.33.36.22.48.7.25 1.07Zm.11-2.84C14.8 8.92 9.5 8.74 6.45 9.67a.93.93 0 1 1-.54-1.78c3.5-1.06 9.35-.86 12.99 1.3a.93.93 0 1 1-.95 1.6Z"/></svg>
+      Play this song
+    </a>
+    <p class="hint">Follow Solomon Nights so every new song reaches you. Then press play and save this one.</p>
+<p class="sharecta" style="margin:24px 0 2px;color:#c9a27a;font-size:14px;font-weight:500;letter-spacing:.3px;">Love this song? Share it with someone who needs to hear it.</p>
+<div class="share" aria-label="Share this song"><button class="sbtn" aria-label="Share to Instagram" onclick="snShare('instagram')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></button><button class="sbtn" aria-label="Share to Facebook" onclick="snShare('facebook')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.45-3H13.5V9.1c0-.86.27-1.45 1.5-1.45h1.5V5.03A20 20 0 0 0 14.36 4.9C12.13 4.9 10.5 6.26 10.5 8.77V11H8.1v3h2.4v7h3z"/></svg></button><button class="sbtn" aria-label="Share to TikTok" onclick="snShare('tiktok')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.32 2.06 1.5 3.43 3.5 3.6v2.66c-1.16.1-2.18-.26-3.36-.97v6.05c0 4.06-3.34 6.4-6.65 5.46-3.9-1.1-4.62-6.06-1.08-7.86.95-.48 1.86-.55 2.99-.4v2.79c-.43-.13-.86-.2-1.27-.13-1.07.18-1.74 1.05-1.55 2.13.18 1.02 1.2 1.66 2.26 1.46 1-.18 1.66-1.04 1.66-2.18V3h3.5z"/></svg></button></div>
+<p id="sharemsg" class="sharemsg" role="status"></p>
     <div class="nl" style="margin-top:22px;padding:18px 16px;background:rgba(201,162,122,0.06);border:1px solid #3a322c;border-radius:12px;text-align:left;">
       <style>
         @keyframes nlpulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,122,0);}50%{box-shadow:0 0 22px 2px rgba(201,162,122,0.45);}}
@@ -90,7 +105,7 @@ PAGE = """<!doctype html>
     var src='song page: @@TITLE@@',done=false,armed=false;
     function submit(){
       var em=(inp.value||'').trim();
-      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
+      if(!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
       btn.disabled=true;st.textContent='One moment...';
       fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XvWZZX',{method:'POST',
         headers:{'Content-Type':'application/json','revision':'2025-04-15'},
@@ -133,7 +148,9 @@ var utm={};location.search.replace(/^\\?/,'').split('&').forEach(function(p){
 var meta=Object.assign({artist:'solomon_nights',song:'@@TITLE@@',content_name:'@@TITLE@@',content_category:'solomon_nights'},utm);
 fbq('track','PageView',meta);
 fbq('track','ViewContent',meta);
-document.getElementById('save').addEventListener('click',function(){fbq('trackCustom','SpotifySaveClick',meta);});
+function snShare(p){var url=location.href;var h1=document.querySelector('h1.title')||document.querySelector('h1');var song=h1?h1.textContent:'this song';var txt='Listen to '+song+' by Solomon Nights';try{if(window.fbq)fbq('trackCustom','ShareClick',{platform:p,song:song});}catch(e){}if(p==='facebook'){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url),'_blank','noopener');return;}if(navigator.share){navigator.share({title:song+' \u00b7 Solomon Nights',text:txt,url:url}).catch(function(){});return;}var msg=document.getElementById('sharemsg');var show=function(){if(msg){msg.textContent='Link copied. Paste it into '+(p==='instagram'?'Instagram':'TikTok')+'.';msg.style.opacity=1;setTimeout(function(){msg.style.opacity=0;},3500);}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(show,show);}else{show();}}
+document.getElementById('save').addEventListener('click',function(){fbq('trackCustom','SpotifySaveClick',meta);fbq('track','Lead',meta);});
+var _fl=document.getElementById('follow');if(_fl)_fl.addEventListener('click',function(){fbq('trackCustom','SpotifyFollowClick',meta);fbq('track','Lead',meta);});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=@@PIXEL@@&ev=PageView&noscript=1"/></noscript>
 </body>
@@ -234,7 +251,7 @@ HOME = """<!doctype html>
     var src='homepage',done=false,armed=false;
     function submit(){
       var em=(inp.value||'').trim();
-      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
+      if(!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
       btn.disabled=true;st.textContent='One moment...';
       fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XvWZZX',{method:'POST',
         headers:{'Content-Type':'application/json','revision':'2025-04-15'},
