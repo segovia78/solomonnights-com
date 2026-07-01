@@ -51,31 +51,55 @@
 <p class="sharecta" style="margin:24px 0 2px;color:#c9a27a;font-size:14px;font-weight:500;letter-spacing:.3px;">Love this song? Share it with someone who needs to hear it.</p>
 <div class="share" aria-label="Share this song"><button class="sbtn" aria-label="Share to Instagram" onclick="snShare('instagram')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></button><button class="sbtn" aria-label="Share to Facebook" onclick="snShare('facebook')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.45-3H13.5V9.1c0-.86.27-1.45 1.5-1.45h1.5V5.03A20 20 0 0 0 14.36 4.9C12.13 4.9 10.5 6.26 10.5 8.77V11H8.1v3h2.4v7h3z"/></svg></button><button class="sbtn" aria-label="Share to TikTok" onclick="snShare('tiktok')"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.32 2.06 1.5 3.43 3.5 3.6v2.66c-1.16.1-2.18-.26-3.36-.97v6.05c0 4.06-3.34 6.4-6.65 5.46-3.9-1.1-4.62-6.06-1.08-7.86.95-.48 1.86-.55 2.99-.4v2.79c-.43-.13-.86-.2-1.27-.13-1.07.18-1.74 1.05-1.55 2.13.18 1.02 1.2 1.66 2.26 1.46 1-.18 1.66-1.04 1.66-2.18V3h3.5z"/></svg></button></div>
 <p id="sharemsg" class="sharemsg" role="status"></p>
-    <div class="nl" style="margin-top:22px;padding-top:18px;border-top:0.5px solid #2c251f;text-align:left;">
-      <div style="color:#c9a27a;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">New songs first</div>
-      <div style="color:#b9a895;font-size:13px;line-height:1.55;margin-bottom:12px;">Leave your email and every new song reaches you before anywhere else.</div>
+    <div class="nl" style="margin-top:22px;padding:18px 16px;background:rgba(201,162,122,0.06);border:1px solid #3a322c;border-radius:12px;text-align:left;">
+      <style>
+        @keyframes nlpulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,122,0);}50%{box-shadow:0 0 22px 2px rgba(201,162,122,0.45);}}
+        .nl.nl-hot{border-color:#c9a27a !important;animation:nlpulse 1.6s ease-in-out 3;}
+        .nl input:focus{border-color:#c9a27a !important;}
+      </style>
+      <div class="nl-head" style="color:#c9a27a;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:600;">New songs first</div>
+      <div class="nl-copy" style="color:#b9a895;font-size:13px;line-height:1.55;margin-bottom:12px;">Leave your email and every new song reaches you before anywhere else.</div>
       <input type="email" placeholder="your email" autocomplete="email" style="width:100%;box-sizing:border-box;background:#221b16;border:0.5px solid #3a322c;border-radius:9px;color:#f3ece4;font-size:14px;padding:12px 14px;outline:none;" />
-      <button type="button" onclick="snSignup(this,'song page: easy-hallelujahs')" style="width:100%;margin-top:9px;background:#c9a27a;color:#241a12;border:0;border-radius:9px;font-size:14px;font-weight:600;padding:12px;cursor:pointer;">Keep me posted</button>
+      <button type="button" style="width:100%;margin-top:9px;background:#c9a27a;color:#241a12;border:0;border-radius:9px;font-size:14px;font-weight:600;padding:12px;cursor:pointer;">Keep me posted</button>
       <div class="nl-status" style="color:#8a7b6d;font-size:12px;margin-top:8px;min-height:15px;"></div>
     </div>
-<script>
-function snSignup(btn, src){
-  var box=btn.closest('.nl'),inp=box.querySelector('input'),st=box.querySelector('.nl-status');
-  var em=(inp.value||'').trim();
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
-  btn.disabled=true;st.textContent='One moment...';
-  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XvWZZX',{method:'POST',
-    headers:{'Content-Type':'application/json','revision':'2025-04-15'},
-    body:JSON.stringify({data:{type:'subscription',attributes:{custom_source:src,
-      profile:{data:{type:'profile',attributes:{email:em}}}},
-      relationships:{list:{data:{type:'list',id:'WXzXBb'}}}}})
-  }).then(function(r){
-    if(r.status===202){st.textContent='You are in. Welcome.';inp.value='';
-      if(window.fbq)fbq('trackCustom','EmailSignup',Object.assign({source:src},window.meta||{}));}
-    else{st.textContent='Something went wrong. Please try again.';btn.disabled=false;}
-  }).catch(function(){st.textContent='Something went wrong. Please try again.';btn.disabled=false;});
-}
-</script>
+    <script>
+    (function(){
+    var box=document.querySelector('.nl');if(!box)return;
+    var inp=box.querySelector('input'),btn=box.querySelector('button'),st=box.querySelector('.nl-status');
+    var head=box.querySelector('.nl-head'),copy=box.querySelector('.nl-copy');
+    var src='song page: easy-hallelujahs',done=false,armed=false;
+    function submit(){
+      var em=(inp.value||'').trim();
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
+      btn.disabled=true;st.textContent='One moment...';
+      fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XvWZZX',{method:'POST',
+        headers:{'Content-Type':'application/json','revision':'2025-04-15'},
+        body:JSON.stringify({data:{type:'subscription',attributes:{custom_source:src,
+          profile:{data:{type:'profile',attributes:{email:em}}}},
+          relationships:{list:{data:{type:'list',id:'WXzXBb'}}}}})
+      }).then(function(r){
+        if(r.status===202){done=true;inp.style.display='none';btn.style.display='none';
+          if(head)head.textContent='You are in';
+          if(copy)copy.textContent='Welcome. New songs will find you first.';
+          st.textContent='';
+          if(window.fbq)fbq('trackCustom','EmailSignup',Object.assign({source:src},window.meta||{}));}
+        else{st.textContent='Something went wrong. Please try again.';btn.disabled=false;}
+      }).catch(function(){st.textContent='Something went wrong. Please try again.';btn.disabled=false;});
+    }
+    btn.addEventListener('click',submit);
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();submit();}});
+    function pulse(){box.classList.remove('nl-hot');void box.offsetWidth;box.classList.add('nl-hot');}
+    function hot(){if(done)return;
+      if(head)head.textContent='Before anyone else hears it';
+      if(copy)copy.textContent='You pressed play on this one early. Leave your email and the next song reaches you first.';
+      pulse();box.scrollIntoView({behavior:'smooth',block:'center'});}
+    ['save','follow'].forEach(function(id){var el=document.getElementById(id);
+      if(el)el.addEventListener('click',function(){if(!armed){armed=true;setTimeout(hot,900);}});});
+    document.addEventListener('visibilitychange',function(){
+      if(armed&&!done&&document.visibilityState==='visible')pulse();});
+    })();
+    </script>
 <div class="foot">Part of the <a target="_blank" rel="noopener" href="https://open.spotify.com/playlist/053laY69PHb8Sy27Xnb7Yh">“This is Solomon Nights”</a> playlist</div>
   </main>
 <script>
