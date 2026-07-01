@@ -75,7 +75,12 @@
     var box=document.querySelector('.nl');if(!box)return;
     var inp=box.querySelector('input'),btn=box.querySelector('button'),st=box.querySelector('.nl-status');
     var head=box.querySelector('.nl-head'),copy=box.querySelector('.nl-copy');
-    var src='song page: signals',done=false,armed=false;
+    var src='song page: signals',KEY='sn-armed',SUB='sn-subscribed';
+    function isSub(){try{return localStorage.getItem(SUB)==='1'}catch(e){return false}}
+    var done=isSub();
+    function showSub(){inp.style.display='none';btn.style.display='none';st.textContent='';
+      if(head)head.textContent='You are in';
+      if(copy)copy.textContent='Welcome. New songs will find you first.';}
     function submit(){
       var em=(inp.value||'').trim();
       if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
@@ -86,10 +91,8 @@
           profile:{data:{type:'profile',attributes:{email:em}}}},
           relationships:{list:{data:{type:'list',id:'WXzXBb'}}}}})
       }).then(function(r){
-        if(r.status===202){done=true;inp.style.display='none';btn.style.display='none';
-          if(head)head.textContent='You are in';
-          if(copy)copy.textContent='Welcome. New songs will find you first.';
-          st.textContent='';
+        if(r.status===202){done=true;try{localStorage.setItem(SUB,'1')}catch(e){}
+          showSub();
           if(window.fbq)fbq('trackCustom','EmailSignup',Object.assign({source:src},window.meta||{}));}
         else{st.textContent='Something went wrong. Please try again.';btn.disabled=false;}
       }).catch(function(){st.textContent='Something went wrong. Please try again.';btn.disabled=false;});
@@ -97,14 +100,20 @@
     btn.addEventListener('click',submit);
     inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();submit();}});
     function pulse(){box.classList.remove('nl-hot');void box.offsetWidth;box.classList.add('nl-hot');}
-    function hot(){if(done)return;
+    function transform(){if(done)return;
       if(head)head.textContent='Before anyone else hears it';
-      if(copy)copy.textContent='You pressed play on this one early. Leave your email and the next song reaches you first.';
-      pulse();box.scrollIntoView({behavior:'smooth',block:'center'});}
+      if(copy)copy.textContent='You pressed play on this one early. Leave your email and the next song reaches you first.';}
+    function armedHere(){try{var v=sessionStorage.getItem(KEY);if(!v)return false;
+      var o=JSON.parse(v);return o.p===location.pathname&&(Date.now()-o.t)<1800000;}catch(e){return false}}
+    function arm(){try{sessionStorage.setItem(KEY,JSON.stringify({p:location.pathname,t:Date.now()}))}catch(e){}}
+    function comeback(){if(done||!armedHere())return;transform();pulse();
+      try{box.scrollIntoView({behavior:'smooth',block:'center'})}catch(e){}}
     ['save','follow'].forEach(function(id){var el=document.getElementById(id);
-      if(el)el.addEventListener('click',function(){if(!armed){armed=true;setTimeout(hot,900);}});});
-    document.addEventListener('visibilitychange',function(){
-      if(armed&&!done&&document.visibilityState==='visible')pulse();});
+      if(el)el.addEventListener('click',function(){arm();transform();});});
+    document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')comeback();});
+    window.addEventListener('pageshow',function(){comeback();});
+    if(done){showSub();}
+    else if(armedHere()){transform();}
     })();
     </script>
 <div class="foot">Part of the <a target="_blank" rel="noopener" href="https://open.spotify.com/playlist/053laY69PHb8Sy27Xnb7Yh">“This is Solomon Nights”</a> playlist</div>
