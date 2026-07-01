@@ -70,6 +70,31 @@ PAGE = """<!doctype html>
       Save on Spotify
     </a>
     <p class="hint">Opens in the Spotify app on this song —<br>tap the heart to save the playlist</p>
+    <div class="nl" style="margin-top:22px;padding-top:18px;border-top:0.5px solid #2c251f;text-align:left;">
+      <div style="color:#c9a27a;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">New songs first</div>
+      <div style="color:#b9a895;font-size:13px;line-height:1.55;margin-bottom:12px;">Leave your email and every new song reaches you before anywhere else.</div>
+      <input type="email" placeholder="your email" autocomplete="email" style="width:100%;box-sizing:border-box;background:#221b16;border:0.5px solid #3a322c;border-radius:9px;color:#f3ece4;font-size:14px;padding:12px 14px;outline:none;" />
+      <button type="button" onclick="snSignup(this,'song page: @@TITLE@@')" style="width:100%;margin-top:9px;background:#c9a27a;color:#241a12;border:0;border-radius:9px;font-size:14px;font-weight:600;padding:12px;cursor:pointer;">Keep me posted</button>
+      <div class="nl-status" style="color:#8a7b6d;font-size:12px;margin-top:8px;min-height:15px;"></div>
+    </div>
+<script>
+function snSignup(btn, src){
+  var box=btn.closest('.nl'),inp=box.querySelector('input'),st=box.querySelector('.nl-status');
+  var em=(inp.value||'').trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
+  btn.disabled=true;st.textContent='One moment...';
+  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XvWZZX',{method:'POST',
+    headers:{'Content-Type':'application/json','revision':'2025-04-15'},
+    body:JSON.stringify({data:{type:'subscription',attributes:{custom_source:src,
+      profile:{data:{type:'profile',attributes:{email:em}}}},
+      relationships:{list:{data:{type:'list',id:'WXzXBb'}}}}})
+  }).then(function(r){
+    if(r.status===202){st.textContent='You are in. Welcome.';inp.value='';
+      if(window.fbq)fbq('trackCustom','EmailSignup',Object.assign({source:src},window.meta||{}));}
+    else{st.textContent='Something went wrong. Please try again.';btn.disabled=false;}
+  }).catch(function(){st.textContent='Something went wrong. Please try again.';btn.disabled=false;});
+}
+</script>
     <div class="foot">Part of the <a target="_blank" rel="noopener" href="https://open.spotify.com/playlist/@@PLAYLIST@@">“This is Solomon Nights”</a> playlist</div>
   </main>
 <script>
@@ -165,6 +190,31 @@ HOME = """<!doctype html>
       <a target="_blank" rel="noopener" href="https://www.deezer.com/en/artist/390290591">Deezer</a>
     </div>
 
+    <div class="nl" style="margin:34px auto 0;max-width:430px;padding:26px 22px;background:rgba(255,255,255,0.03);border:0.5px solid #2c251f;border-radius:14px;text-align:center;">
+      <div style="color:#c9a27a;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:9px;">Hear every new song first</div>
+      <div style="color:#b9a895;font-size:14px;line-height:1.6;margin-bottom:14px;">Join the list and new music reaches you before anywhere else. No noise, just the songs.</div>
+      <input type="email" placeholder="your email" autocomplete="email" style="width:100%;box-sizing:border-box;background:#221b16;border:0.5px solid #3a322c;border-radius:9px;color:#f3ece4;font-size:14px;padding:13px 14px;outline:none;" />
+      <button type="button" onclick="snSignup(this,'homepage')" style="width:100%;margin-top:10px;background:#c9a27a;color:#241a12;border:0;border-radius:9px;font-size:14px;font-weight:600;padding:13px;cursor:pointer;">Keep me posted</button>
+      <div class="nl-status" style="color:#8a7b6d;font-size:12px;margin-top:9px;min-height:15px;"></div>
+    </div>
+<script>
+function snSignup(btn, src){
+  var box=btn.closest('.nl'),inp=box.querySelector('input'),st=box.querySelector('.nl-status');
+  var em=(inp.value||'').trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){st.textContent='Please enter a valid email address.';return;}
+  btn.disabled=true;st.textContent='One moment...';
+  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=XvWZZX',{method:'POST',
+    headers:{'Content-Type':'application/json','revision':'2025-04-15'},
+    body:JSON.stringify({data:{type:'subscription',attributes:{custom_source:src,
+      profile:{data:{type:'profile',attributes:{email:em}}}},
+      relationships:{list:{data:{type:'list',id:'WXzXBb'}}}}})
+  }).then(function(r){
+    if(r.status===202){st.textContent='You are in. Welcome.';inp.value='';
+      if(window.fbq)fbq('trackCustom','EmailSignup',Object.assign({source:src},window.meta||{}));}
+    else{st.textContent='Something went wrong. Please try again.';btn.disabled=false;}
+  }).catch(function(){st.textContent='Something went wrong. Please try again.';btn.disabled=false;});
+}
+</script>
     <footer class="foot">
       <div class="social">
         <a target="_blank" rel="noopener" href="https://www.instagram.com/solomonnightsartist/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
